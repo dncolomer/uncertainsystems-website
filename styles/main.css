@@ -734,8 +734,8 @@ section {
         /* Prevent scroll chaining to parent */
         overscroll-behavior-x: contain;
         -ms-scroll-chaining: none;
-        /* Allow only horizontal touch gestures */
-        touch-action: pan-x;
+        /* Allow both horizontal and vertical touch gestures */
+        touch-action: pan-x pan-y;
     }
     
     .vision-pillars::-webkit-scrollbar {
@@ -918,8 +918,8 @@ section {
         /* Prevent scroll chaining to parent */
         overscroll-behavior-x: contain;
         -ms-scroll-chaining: none;
-        /* Allow only horizontal touch gestures */
-        touch-action: pan-x;
+        /* Allow both horizontal and vertical touch gestures */
+        touch-action: pan-x pan-y;
     }
     
     .stack-grid::-webkit-scrollbar {
