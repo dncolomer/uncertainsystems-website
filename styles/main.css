@@ -720,22 +720,31 @@ section {
         touch-action: pan-x;
     }
     
+    /* Add space after last card so it can scroll fully into view */
+    .vision-pillars::after {
+        content: '';
+        flex: 0 0 var(--space-md);
+        height: 1px;
+    }
+    
     .vision-pillars::-webkit-scrollbar {
         display: none;
     }
     
     .vision-pillars .pillar {
-        flex: 0 0 85%;
-        min-width: 280px;
-        max-width: 320px;
+        flex: 0 0 80%;
+        min-width: 260px;
+        max-width: 300px;
         scroll-snap-align: center;
+        flex-shrink: 0;
     }
 }
 
 @media (max-width: 480px) {
     .vision-pillars .pillar {
-        flex: 0 0 90%;
-        min-width: 260px;
+        flex: 0 0 85%;
+        min-width: 240px;
+        max-width: 280px;
     }
 }
 
