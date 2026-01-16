@@ -79,6 +79,44 @@
     }
 
     /**
+     * Mobile navigation toggle
+     */
+    function initMobileNav() {
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        if (!navToggle || !navLinks) return;
+        
+        navToggle.addEventListener('click', () => {
+            const isOpen = navToggle.getAttribute('aria-expanded') === 'true';
+            
+            navToggle.setAttribute('aria-expanded', !isOpen);
+            navLinks.classList.toggle('is-open', !isOpen);
+            
+            // Prevent body scroll when menu is open
+            document.body.style.overflow = !isOpen ? 'hidden' : '';
+        });
+        
+        // Close menu when clicking a link
+        navLinks.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navToggle.setAttribute('aria-expanded', 'false');
+                navLinks.classList.remove('is-open');
+                document.body.style.overflow = '';
+            });
+        });
+        
+        // Close menu on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navLinks.classList.contains('is-open')) {
+                navToggle.setAttribute('aria-expanded', 'false');
+                navLinks.classList.remove('is-open');
+                document.body.style.overflow = '';
+            }
+        });
+    }
+
+    /**
      * Smooth scroll for anchor links
      */
     function initSmoothScroll() {
@@ -316,6 +354,7 @@
     function init() {
         initPageLoad();
         initNavigation();
+        initMobileNav();
         initSmoothScroll();
         initScrollAnimations();
         initHeroParallax();

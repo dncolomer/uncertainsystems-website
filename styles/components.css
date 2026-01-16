@@ -59,7 +59,13 @@
     border-radius: var(--radius-xl);
     padding: var(--space-xl);
     transition: all var(--transition-base);
+    -webkit-transition: all var(--transition-base);
     overflow: hidden;
+    /* Ensure proper rendering on mobile */
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
 }
 
 .project-card::before {
@@ -72,18 +78,31 @@
     background: linear-gradient(90deg, transparent, var(--gold), transparent);
     opacity: 0;
     transition: opacity var(--transition-base);
+    -webkit-transition: opacity var(--transition-base);
 }
 
-.project-card:hover {
-    transform: translateY(-8px);
-    border-color: var(--gold);
-    box-shadow: 
-        0 20px 60px rgba(0, 0, 0, 0.3),
-        0 0 40px rgba(212, 175, 55, 0.1);
+/* Disable hover transform on touch devices for better UX */
+@media (hover: hover) and (pointer: fine) {
+    .project-card:hover {
+        transform: translateY(-8px);
+        -webkit-transform: translateY(-8px);
+        border-color: var(--gold);
+        box-shadow: 
+            0 20px 60px rgba(0, 0, 0, 0.3),
+            0 0 40px rgba(212, 175, 55, 0.1);
+    }
+    
+    .project-card:hover::before {
+        opacity: 1;
+    }
 }
 
-.project-card:hover::before {
-    opacity: 1;
+/* Active state for touch devices */
+@media (hover: none) {
+    .project-card:active {
+        border-color: var(--gold);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
 }
 
 .project-card-featured {
@@ -176,7 +195,11 @@
     font-size: 0.8125rem;
     color: var(--marble-white);
     opacity: 0.6;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     gap: var(--space-xs);
 }
@@ -185,6 +208,33 @@
     content: '◈';
     font-size: 0.625rem;
     color: var(--neon-cyan);
+    -webkit-flex-shrink: 0;
+    flex-shrink: 0;
+}
+
+/* Card features mobile adjustments */
+@media (max-width: 768px) {
+    .card-features {
+        grid-template-columns: 1fr;
+        gap: var(--space-xs);
+    }
+    
+    .card-features li {
+        font-size: 0.75rem;
+    }
+    
+    .card-title {
+        font-size: 1.25rem;
+    }
+    
+    .card-description {
+        font-size: 0.875rem;
+        line-height: 1.6;
+    }
+    
+    .card-tagline {
+        font-size: 0.8125rem;
+    }
 }
 
 .card-links {
@@ -1030,4 +1080,142 @@
     display: block;
     font-size: 0.875rem;
     color: var(--gold);
+}
+
+/* ============================================
+   MOBILE RESPONSIVE FIXES
+   ============================================ */
+
+/* Features grid mobile */
+@media (max-width: 768px) {
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+    }
+    
+    .feature-card {
+        padding: var(--space-lg);
+    }
+    
+    .feature-title {
+        font-size: 1rem;
+    }
+    
+    .feature-text {
+        font-size: 0.875rem;
+    }
+    
+    /* Flow steps mobile */
+    .flow-steps {
+        gap: 0;
+    }
+    
+    .flow-step {
+        padding: var(--space-md);
+    }
+    
+    .step-number {
+        font-size: 1.5rem;
+    }
+    
+    .step-title {
+        font-size: 1.0625rem;
+    }
+    
+    .step-text {
+        font-size: 0.875rem;
+    }
+    
+    /* Project hero mobile */
+    .project-hero-content {
+        padding: var(--space-lg) var(--space-md);
+    }
+    
+    .project-title {
+        font-size: clamp(2rem, 8vw, 3rem);
+    }
+    
+    .project-tagline {
+        font-size: 1rem;
+    }
+    
+    /* CTA section mobile */
+    .cta-content {
+        padding: 0 var(--space-md);
+    }
+    
+    .cta-title {
+        font-size: 1.5rem;
+    }
+    
+    .cta-text {
+        font-size: 1rem;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    /* Description section mobile */
+    .description-content {
+        padding: 0 var(--space-sm);
+    }
+    
+    .description-text {
+        font-size: 1rem;
+    }
+    
+    .description-highlight {
+        padding: var(--space-lg);
+    }
+    
+    .highlight-text {
+        font-size: 1rem;
+    }
+    
+    /* Projects row mobile */
+    .projects-row {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+    }
+    
+    .mini-card {
+        padding: var(--space-md);
+    }
+    
+    .mini-card-title {
+        font-size: 1.0625rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .project-card {
+        padding: var(--space-lg);
+    }
+    
+    .card-links {
+        padding-top: var(--space-sm);
+    }
+    
+    .card-link {
+        font-size: 0.75rem;
+    }
+    
+    /* Buttons mobile */
+    .btn {
+        padding: var(--space-sm) var(--space-md);
+        font-size: 0.8125rem;
+    }
+}
+
+/* iOS Safari fixes */
+@supports (-webkit-touch-callout: none) {
+    .project-card {
+        -webkit-transform: translate3d(0, 0, 0);
+    }
+    
+    .card-glow {
+        -webkit-transform: translate3d(0, 0, 0);
+    }
 }

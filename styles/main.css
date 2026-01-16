@@ -270,6 +270,119 @@ section {
     height: 18px;
 }
 
+/* Mobile navigation toggle */
+.nav-toggle {
+    display: none;
+    width: 32px;
+    height: 32px;
+    position: relative;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+}
+
+.nav-toggle-icon,
+.nav-toggle-icon::before,
+.nav-toggle-icon::after {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: var(--sea-indigo);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: all var(--transition-fast);
+    border-radius: 1px;
+}
+
+.nav-toggle-icon {
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.nav-toggle-icon::before {
+    content: '';
+    top: -6px;
+    left: 0;
+    transform: none;
+}
+
+.nav-toggle-icon::after {
+    content: '';
+    top: 6px;
+    left: 0;
+    transform: none;
+}
+
+/* Dark nav mobile toggle */
+.nav-dark .nav-toggle-icon,
+.nav-dark .nav-toggle-icon::before,
+.nav-dark .nav-toggle-icon::after {
+    background: var(--marble-white);
+}
+
+/* Mobile menu open state */
+.nav-toggle[aria-expanded="true"] .nav-toggle-icon {
+    background: transparent;
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle-icon::before {
+    transform: rotate(45deg);
+    top: 0;
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle-icon::after {
+    transform: rotate(-45deg);
+    top: 0;
+}
+
+@media (max-width: 768px) {
+    .nav-toggle {
+        display: block;
+    }
+    
+    .nav-links {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(245, 245, 245, 0.98);
+        -webkit-backdrop-filter: blur(12px);
+        backdrop-filter: blur(12px);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: var(--space-xl);
+        opacity: 0;
+        visibility: hidden;
+        transition: all var(--transition-base);
+        z-index: 999;
+    }
+    
+    .nav-links.is-open {
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    .nav-links .nav-link {
+        display: block;
+        font-size: 1.25rem;
+        color: var(--sea-indigo);
+        opacity: 1;
+    }
+    
+    .nav-dark .nav-links {
+        background: rgba(0, 26, 51, 0.98);
+    }
+    
+    .nav-dark .nav-links .nav-link {
+        color: var(--marble-white);
+    }
+}
+
 /* ============================================
    HERO SECTION (Landing Page)
    ============================================ */
@@ -686,13 +799,85 @@ section {
     z-index: 2;
 }
 
+/* Mobile: Horizontal scrolling cards */
 @media (max-width: 768px) {
+    .stack .container {
+        padding: 0;
+    }
+    
+    .stack-header {
+        padding: 0 var(--space-md);
+    }
+    
     .stack-grid {
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        padding: 0 var(--space-md);
+        padding-bottom: var(--space-md);
+        gap: var(--space-md);
+    }
+    
+    .stack-grid::-webkit-scrollbar {
+        display: none;
+    }
+    
+    .stack-grid .project-card {
+        flex: 0 0 85%;
+        min-width: 280px;
+        max-width: 320px;
+        scroll-snap-align: center;
     }
     
     .project-card-wide {
         grid-column: auto;
+        min-height: 350px;
+        flex: 0 0 85%;
+        min-width: 280px;
+        max-width: 320px;
+    }
+    
+    .project-card-wide::before {
+        background: linear-gradient(
+            to bottom,
+            rgba(0, 51, 102, 0.95) 0%,
+            rgba(0, 51, 102, 0.85) 50%,
+            rgba(0, 51, 102, 0.7) 100%
+        );
+    }
+}
+
+/* Scroll indicator for mobile */
+.scroll-indicator {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .scroll-indicator {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: var(--space-xs);
+        padding-top: var(--space-md);
+        color: var(--marble-white);
+        opacity: 0.5;
+        font-size: 0.75rem;
+    }
+    
+    .scroll-indicator svg {
+        width: 16px;
+        height: 16px;
+        animation: scroll-hint 1.5s ease-in-out infinite;
+    }
+    
+    @keyframes scroll-hint {
+        0%, 100% { transform: translateX(0); }
+        50% { transform: translateX(4px); }
     }
 }
 
@@ -843,12 +1028,21 @@ section {
 /* ============================================
    RESPONSIVE ADJUSTMENTS
    ============================================ */
+
+/* Tablet and below */
+@media (max-width: 1024px) {
+    .vision-pillars {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+}
+
 @media (max-width: 768px) {
     :root {
         --space-3xl: 4rem;
         --space-4xl: 5rem;
     }
     
+    /* Navigation mobile */
     .nav-links {
         gap: var(--space-md);
     }
@@ -857,6 +1051,44 @@ section {
         display: none;
     }
     
+    .nav-container {
+        height: 60px;
+    }
+    
+    .logo-text {
+        font-size: 1rem;
+    }
+    
+    /* Hero mobile fixes */
+    .hero {
+        padding-top: 60px;
+        min-height: 100vh;
+        min-height: -webkit-fill-available;
+    }
+    
+    .hero-content {
+        padding: var(--space-md);
+    }
+    
+    .hero-description {
+        font-size: 1rem;
+    }
+    
+    /* Vision section mobile */
+    .vision-pillars {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+    }
+    
+    .pillar {
+        padding: var(--space-lg);
+    }
+    
+    .manifesto-text {
+        font-size: 1.0625rem;
+    }
+    
+    /* Footer mobile */
     .footer-content {
         flex-direction: column;
         text-align: center;
@@ -864,10 +1096,20 @@ section {
     
     .footer-links {
         justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .footer {
+        padding: var(--space-2xl) 0 var(--space-lg);
     }
 }
 
 @media (max-width: 480px) {
+    :root {
+        --space-3xl: 3rem;
+        --space-4xl: 4rem;
+    }
+    
     .hero-badge {
         font-size: 0.625rem;
         padding: var(--space-xs) var(--space-sm);
@@ -876,5 +1118,60 @@ section {
     .hero-cta {
         font-size: 0.75rem;
         padding: var(--space-sm) var(--space-md);
+    }
+    
+    .hero-title {
+        font-size: clamp(2rem, 10vw, 3rem);
+    }
+    
+    .hero-tagline {
+        font-size: 0.9rem;
+    }
+    
+    .hero-description {
+        font-size: 0.9375rem;
+    }
+    
+    .section-title {
+        font-size: clamp(1.5rem, 5vw, 2rem);
+    }
+    
+    .manifesto-text {
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+    
+    /* Stack cards smaller screens */
+    .stack-grid .project-card {
+        flex: 0 0 90%;
+        min-width: 260px;
+    }
+    
+    .project-card-wide {
+        flex: 0 0 90%;
+        min-width: 260px;
+    }
+}
+
+/* iOS Safari specific fixes */
+@supports (-webkit-touch-callout: none) {
+    .hero {
+        min-height: -webkit-fill-available;
+    }
+    
+    .stack-grid {
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+/* Fix for 100vh on mobile browsers */
+@media (max-width: 768px) {
+    html {
+        height: -webkit-fill-available;
+    }
+    
+    body {
+        min-height: 100vh;
+        min-height: -webkit-fill-available;
     }
 }
