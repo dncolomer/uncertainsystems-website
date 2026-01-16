@@ -713,6 +713,11 @@ section {
         padding-bottom: var(--space-md);
         gap: var(--space-md);
         max-width: none;
+        /* Prevent scroll chaining to parent */
+        overscroll-behavior-x: contain;
+        -ms-scroll-chaining: none;
+        /* Allow only horizontal touch gestures */
+        touch-action: pan-x;
     }
     
     .vision-pillars::-webkit-scrollbar {
@@ -892,6 +897,11 @@ section {
         padding: 0 var(--space-md);
         padding-bottom: var(--space-md);
         gap: var(--space-md);
+        /* Prevent scroll chaining to parent */
+        overscroll-behavior-x: contain;
+        -ms-scroll-chaining: none;
+        /* Allow only horizontal touch gestures */
+        touch-action: pan-x;
     }
     
     .stack-grid::-webkit-scrollbar {
