@@ -70,6 +70,11 @@ html {
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    /* iOS fixes */
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+    -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -79,6 +84,11 @@ body {
     color: var(--sea-indigo);
     background-color: var(--marble-white);
     overflow-x: hidden;
+    /* iOS fixes */
+    min-height: 100%;
+    width: 100%;
+    position: relative;
+    -webkit-overflow-scrolling: touch;
 }
 
 img, video, svg {
@@ -1239,6 +1249,14 @@ section {
 
 /* iOS Safari specific fixes */
 @supports (-webkit-touch-callout: none) {
+    html {
+        height: -webkit-fill-available;
+    }
+    
+    body {
+        min-height: -webkit-fill-available;
+    }
+    
     .hero {
         min-height: -webkit-fill-available;
     }
@@ -1247,16 +1265,23 @@ section {
     .vision-pillars {
         -webkit-overflow-scrolling: touch;
     }
+    
+    /* Prevent rubber-banding on horizontal scroll containers */
+    .vision-pillars,
+    .stack-grid {
+        overscroll-behavior: contain;
+    }
 }
 
 /* Fix for 100vh on mobile browsers */
 @media (max-width: 768px) {
     html {
+        height: 100%;
         height: -webkit-fill-available;
     }
     
     body {
-        min-height: 100vh;
+        min-height: 100%;
         min-height: -webkit-fill-available;
     }
 }
