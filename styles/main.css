@@ -700,6 +700,15 @@ section {
         padding: 0 var(--space-md);
     }
     
+    /* Override grid to allow horizontal scroll */
+    .vision-content {
+        display: block;
+    }
+    
+    .vision-manifesto {
+        margin-bottom: var(--space-xl);
+    }
+    
     .vision-pillars {
         display: flex;
         flex-direction: row;
