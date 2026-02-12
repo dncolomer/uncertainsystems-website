@@ -865,32 +865,6 @@ section {
 /* Omega Quest spans both columns on desktop */
 .project-card-wide {
     grid-column: 1 / -1;
-    background: url('../assets/images/omega-quest-card.jpg') center right / cover no-repeat !important;
-    position: relative;
-    min-height: 400px;
-}
-
-.project-card-wide::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(
-        to right,
-        rgba(0, 51, 102, 0.95) 0%,
-        rgba(0, 51, 102, 0.85) 40%,
-        rgba(0, 51, 102, 0.6) 70%,
-        rgba(0, 51, 102, 0.4) 100%
-    );
-    border-radius: inherit;
-    z-index: 1;
-}
-
-.project-card-wide > * {
-    position: relative;
-    z-index: 2;
 }
 
 /* Mobile: Horizontal scrolling cards */
@@ -1283,5 +1257,409 @@ section {
     body {
         min-height: 100%;
         min-height: -webkit-fill-available;
+    }
+}
+
+/* ============================================
+   STATIC PAGES (Legal, Privacy, Terms, etc.)
+   ============================================ */
+.static-page {
+    min-height: 100vh;
+    padding-top: calc(72px + var(--space-3xl));
+    padding-bottom: var(--space-3xl);
+    background: linear-gradient(180deg, var(--deep-indigo) 0%, var(--sea-indigo) 100%);
+}
+
+.static-content {
+    max-width: 800px;
+    margin: 0 auto;
+    background: rgba(245, 245, 245, 0.03);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: var(--radius-lg);
+    padding: var(--space-3xl);
+    backdrop-filter: blur(10px);
+}
+
+.static-header {
+    text-align: center;
+    margin-bottom: var(--space-3xl);
+    padding-bottom: var(--space-xl);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.static-header h1 {
+    color: var(--marble-white);
+    margin-bottom: var(--space-sm);
+    background: linear-gradient(135deg, var(--marble-white) 0%, var(--gold) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.static-date {
+    color: var(--slate-gray);
+    font-size: 0.875rem;
+}
+
+.static-section {
+    margin-bottom: var(--space-xl);
+}
+
+.static-section h2 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    color: var(--gold);
+    margin-bottom: var(--space-md);
+    padding-bottom: var(--space-xs);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.static-section h3 {
+    font-family: var(--font-display);
+    font-size: 1.125rem;
+    color: var(--marble-white);
+    margin-top: var(--space-lg);
+    margin-bottom: var(--space-sm);
+}
+
+.static-section p {
+    color: rgba(245, 245, 245, 0.8);
+    margin-bottom: var(--space-md);
+    line-height: 1.8;
+}
+
+.static-section ul {
+    margin-bottom: var(--space-md);
+    padding-left: var(--space-lg);
+}
+
+.static-section ul li {
+    color: rgba(245, 245, 245, 0.8);
+    margin-bottom: var(--space-sm);
+    position: relative;
+    padding-left: var(--space-sm);
+    line-height: 1.7;
+}
+
+.static-section ul li::before {
+    content: '◇';
+    position: absolute;
+    left: calc(-1 * var(--space-md));
+    color: var(--gold);
+    font-size: 0.75rem;
+}
+
+.static-section ul li strong {
+    color: var(--marble-white);
+}
+
+.static-section a {
+    color: var(--gold);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.static-section a:hover {
+    color: var(--marble-white);
+}
+
+/* Info Card for Legal/Company Information */
+.info-card {
+    background: rgba(212, 175, 55, 0.05);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: var(--radius-md);
+    padding: var(--space-lg);
+}
+
+.info-card p {
+    margin-bottom: var(--space-xs);
+}
+
+.info-card p:last-child {
+    margin-bottom: 0;
+}
+
+.info-card strong {
+    color: var(--gold);
+}
+
+/* Contact Info Block */
+.contact-info {
+    background: rgba(212, 175, 55, 0.05);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: var(--radius-md);
+    padding: var(--space-lg);
+    margin-top: var(--space-md);
+}
+
+.contact-info p {
+    margin-bottom: var(--space-xs);
+}
+
+.contact-info p:last-child {
+    margin-bottom: 0;
+}
+
+.contact-info strong {
+    color: var(--gold);
+}
+
+/* Cookie Table Styles */
+.cookie-table {
+    overflow-x: auto;
+    margin: var(--space-md) 0;
+}
+
+.cookie-table table {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+}
+
+.cookie-table th,
+.cookie-table td {
+    padding: var(--space-sm) var(--space-md);
+    text-align: left;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.cookie-table th {
+    background: rgba(212, 175, 55, 0.1);
+    color: var(--gold);
+    font-weight: 600;
+    font-size: 0.875rem;
+}
+
+.cookie-table td {
+    color: rgba(245, 245, 245, 0.8);
+    font-size: 0.875rem;
+}
+
+.cookie-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* Notice Box */
+.notice {
+    background: rgba(212, 175, 55, 0.1);
+    border-left: 3px solid var(--gold);
+    padding: var(--space-md);
+    margin-top: var(--space-lg);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+/* ============================================
+   CONTACT PAGE SPECIFIC STYLES
+   ============================================ */
+.contact-page .static-header {
+    border-bottom: none;
+    padding-bottom: var(--space-md);
+}
+
+.contact-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto var(--space-lg);
+    background: rgba(212, 175, 55, 0.1);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-icon svg {
+    width: 36px;
+    height: 36px;
+    color: var(--gold);
+}
+
+.contact-subtitle {
+    color: rgba(245, 245, 245, 0.7);
+    font-size: 1.125rem;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+    margin-bottom: var(--space-3xl);
+}
+
+@media (max-width: 768px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.contact-card {
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(212, 175, 55, 0.15);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    transition: all var(--transition-base);
+}
+
+.contact-card:hover {
+    border-color: rgba(212, 175, 55, 0.4);
+    transform: translateY(-2px);
+}
+
+.contact-card-primary {
+    grid-column: 1 / -1;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(0, 0, 0, 0.2) 100%);
+    border-color: rgba(212, 175, 55, 0.3);
+    text-align: center;
+}
+
+.contact-card-icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: var(--space-md);
+    color: var(--gold);
+}
+
+.contact-card-primary .contact-card-icon {
+    margin: 0 auto var(--space-md);
+}
+
+.contact-card h2 {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    color: var(--marble-white);
+    margin-bottom: var(--space-sm);
+}
+
+.contact-card p {
+    color: rgba(245, 245, 245, 0.7);
+    font-size: 0.9375rem;
+    margin-bottom: var(--space-sm);
+}
+
+.contact-email {
+    display: inline-block;
+    font-size: 1.25rem;
+    color: var(--gold);
+    margin-bottom: var(--space-md);
+    transition: color var(--transition-fast);
+}
+
+.contact-email:hover {
+    color: var(--marble-white);
+}
+
+.contact-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    color: var(--gold);
+    font-weight: 500;
+    transition: all var(--transition-fast);
+}
+
+.contact-link:hover {
+    color: var(--marble-white);
+    gap: var(--space-sm);
+}
+
+.contact-link svg {
+    width: 16px;
+    height: 16px;
+}
+
+.contact-note {
+    font-size: 0.8125rem !important;
+    color: rgba(245, 245, 245, 0.5) !important;
+    font-style: italic;
+}
+
+/* Contact FAQ Section */
+.contact-faq h2 {
+    text-align: center;
+    margin-bottom: var(--space-xl);
+}
+
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+}
+
+@media (max-width: 768px) {
+    .faq-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.faq-item {
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: var(--radius-md);
+    padding: var(--space-lg);
+}
+
+.faq-item h3 {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    color: var(--gold);
+    margin-bottom: var(--space-sm);
+}
+
+.faq-item p {
+    color: rgba(245, 245, 245, 0.7);
+    font-size: 0.875rem;
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* ============================================
+   FOOTER LEGAL LINKS ROW
+   ============================================ */
+.footer-legal {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-md);
+    padding: var(--space-md) 0;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.footer-legal a {
+    font-size: 0.75rem;
+    color: var(--marble-white);
+    opacity: 0.5;
+    transition: all var(--transition-fast);
+}
+
+.footer-legal a:hover {
+    opacity: 1;
+    color: var(--gold);
+}
+
+.footer-copyright {
+    font-size: 0.75rem;
+    color: var(--marble-white);
+    opacity: 0.4;
+    margin-bottom: var(--space-xs);
+}
+
+/* ============================================
+   STATIC PAGE RESPONSIVE ADJUSTMENTS
+   ============================================ */
+@media (max-width: 768px) {
+    .static-content {
+        padding: var(--space-xl);
+        margin: 0 var(--space-md);
+    }
+    
+    .static-header h1 {
+        font-size: 2rem;
+    }
+    
+    .static-section h2 {
+        font-size: 1.25rem;
     }
 }
