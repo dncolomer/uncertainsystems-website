@@ -128,80 +128,65 @@
                 <h2 class="section-title">Open Tools for Learning</h2>
                 <p class="section-subtitle">Pillars of the educational acceleration framework</p>
             </div>
-            <div class="stack-grid">
-                <!-- OpenCompanion -->
-                <article class="project-card">
-                    <div class="card-glow"></div>
-                    <h3 class="card-title">OpenCompanion</h3>
-                    <p class="card-tagline">Bring characters to life</p>
-                    <p class="card-description">
-                        An open-source framework for creating interactive animated companions. 
-                        State graphs, event mapping, and cross-platform runtimes for web and hardware.
-                    </p>
-                    <ul class="card-features">
-                        <li>State Graph System</li>
-                        <li>Event Mapping</li>
-                        <li>Web + Pi Runtimes</li>
-                        <li>Visual Studio Editor</li>
-                    </ul>
-                    <div class="card-links">
-                        <a href="https://github.com/dncolomer" class="card-link card-link-secondary" target="_blank" rel="noopener">
-                            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
-                                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+            <div class="tools-list">
+                <!-- Human Cognition Dataset -->
+                <article class="tool-card">
+                    <div class="tool-icon tool-icon-letter">HCD</div>
+                    <div class="tool-content">
+                        <h3 class="tool-title">Human Cognition Dataset</h3>
+                        <p class="tool-description">Large open collection of real human thinking examples, gathered from people solving problems and explaining their thoughts out loud.</p>
+                        <a href="https://www.omega-quest.com/dataset" class="tool-cta" target="_blank" rel="noopener">
+                            Explore Dataset
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
                             </svg>
-                            GitHub
-                        </a>
-                    </div>
-                    <div class="card-projects">
-                        <span class="card-projects-label">Projects</span>
-                        <a href="https://spelloframe.com" class="card-project-link" target="_blank" rel="noopener">
-                            Spello
-                            <span class="card-project-badge badge-coming-soon">Coming soon</span>
                         </a>
                     </div>
                 </article>
 
-                <!-- OpenLesson -->
-                <article class="project-card project-card-featured">
-                    <div class="card-glow"></div>
-                    <h3 class="card-title">OpenLesson</h3>
-                    <p class="card-tagline">Learn through challenges</p>
-                    <p class="card-description">
-                        AI-powered adaptive learning that generates personalized lesson plans. 
-                        Challenges that evolve based on your progress, with instant AI evaluation.
-                    </p>
-                    <ul class="card-features">
-                        <li>AI Plan Generation</li>
-                        <li>Adaptive Challenges</li>
-                        <li>Progress Tracking</li>
-                        <li>Instant Evaluation</li>
-                    </ul>
-                    <div class="card-projects">
-                        <span class="card-projects-label">Projects</span>
-                        <a href="https://socraticlesson.com" class="card-project-link" target="_blank" rel="noopener">
-                            Socraticlesson.com
-                            <span class="card-project-badge badge-live">Live! Test for free</span>
+                <!-- HC RAG Service -->
+                <article class="tool-card">
+                    <div class="tool-icon tool-icon-letter">RAG</div>
+                    <div class="tool-content">
+                        <h3 class="tool-title">HC RAG Service</h3>
+                        <p class="tool-description">Vector database API that lets you quickly search and retrieve relevant parts from the Human Cognition Dataset for building accurate AI tools.</p>
+                        <span class="tool-cta-disabled">Coming soon</span>
+                    </div>
+                </article>
+
+                <!-- Genuine Human Cognition Score -->
+                <article class="tool-card">
+                    <div class="tool-icon tool-icon-letter">GHC</div>
+                    <div class="tool-content">
+                        <h3 class="tool-title">Genuine Human Cognition Score</h3>
+                        <p class="tool-description">A score that measures how closely AI Chain of Thought matches real human thinking patterns (using our dataset to detect fake or overly artificial responses).</p>
+                        <span class="tool-cta-disabled">Coming soon</span>
+                    </div>
+                </article>
+
+                <!-- openLesson -->
+                <article class="tool-card">
+                    <div class="tool-icon tool-icon-letter">oL</div>
+                    <div class="tool-content">
+                        <h3 class="tool-title">openLesson</h3>
+                        <p class="tool-description">Educational harness for LLMs. It turns any LLM into an optimal tutor for humans. It creates custom lessons, adapts to your progress, and implements the Socratic method for learning.</p>
+                        <a href="https://github.com/dncolomer/openlesson" class="tool-cta" target="_blank" rel="noopener">
+                            View on GitHub
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
                         </a>
                     </div>
                 </article>
 
-                <!-- Omega Quest -->
-                <article class="project-card project-card-wide">
-                    <div class="card-glow"></div>
-                    <h3 class="card-title">Omega Quest</h3>
-                    <p class="card-tagline">Mining Human Cognition</p>
-                    <p class="card-description">
-                        Help us build the World's Largest Open Dataset of Human Reasoning.
-                    </p>
-                    <ul class="card-features">
-                        <li>Community Challenges</li>
-                        <li>AI-Assisted Problem Solving</li>
-                        <li>Collaborative Learning</li>
-                        <li>Open Research</li>
-                    </ul>
-                    <div class="card-links">
-                        <a href="https://omega-quest.com" class="card-link card-link-primary" target="_blank" rel="noopener">
-                            Join Community
+                <!-- openCompanion -->
+                <article class="tool-card">
+                    <div class="tool-icon tool-icon-letter">oC</div>
+                    <div class="tool-content">
+                        <h3 class="tool-title">openCompanion</h3>
+                        <p class="tool-description">Tool to build and evolve educational AI companions that bring learning to an embodied experience in the real world.</p>
+                        <a href="https://github.com/dncolomer/opencompanion" class="tool-cta" target="_blank" rel="noopener">
+                            View on GitHub
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M5 12h14M12 5l7 7-7 7"/>
                             </svg>

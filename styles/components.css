@@ -50,7 +50,144 @@
 }
 
 /* ============================================
-   PROJECT CARDS (Stack Section)
+    TOOLS LIST (Stack Section - New)
+    ============================================ */
+.tools-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.tool-card {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-lg);
+    padding: var(--space-xl);
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(212, 175, 55, 0.15);
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-base);
+}
+
+.tool-card:hover {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(212, 175, 55, 0.3);
+    transform: translateX(8px);
+}
+
+.tool-icon {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(0, 255, 255, 0.1) 100%);
+    border-radius: var(--radius-md);
+    color: var(--gold);
+}
+
+.tool-icon-letter {
+    font-family: var(--font-display);
+    font-size: 0.875rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: var(--gold);
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.2) 0%, rgba(212, 175, 55, 0.1) 100%);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.tool-content {
+    flex: 1;
+}
+
+.tool-title {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--marble-white);
+    margin-bottom: var(--space-xs);
+}
+
+.tool-description {
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    color: var(--marble-white);
+    opacity: 0.7;
+}
+
+.tool-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    font-family: var(--font-display);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    color: var(--gold);
+    margin-top: var(--space-md);
+    transition: all var(--transition-fast);
+    text-decoration: none;
+}
+
+.tool-cta svg {
+    width: 16px;
+    height: 16px;
+    transition: transform var(--transition-fast);
+}
+
+.tool-cta:hover {
+    color: var(--marble-white);
+}
+
+.tool-cta:hover svg {
+    transform: translateX(4px);
+}
+
+.tool-cta-disabled {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    font-family: var(--font-display);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    color: var(--marble-white);
+    opacity: 0.4;
+    margin-top: var(--space-md);
+    cursor: not-allowed;
+}
+
+/* Mobile responsive for tools list */
+@media (max-width: 640px) {
+    .tool-card {
+        flex-direction: column;
+        gap: var(--space-md);
+        padding: var(--space-lg);
+    }
+    
+    .tool-icon {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .tool-icon-letter {
+        font-size: 0.75rem;
+    }
+    
+    .tool-title {
+        font-size: 1.125rem;
+    }
+    
+    .tool-description {
+        font-size: 0.875rem;
+    }
+}
+
+/* ============================================
+    PROJECT CARDS (Stack Section)
    ============================================ */
 .project-card {
     position: relative;
