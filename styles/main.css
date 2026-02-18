@@ -847,6 +847,16 @@ section {
     color: var(--gold);
 }
 
+.token .section-label,
+.token .section-title,
+.token .section-subtitle {
+    color: var(--marble-white);
+}
+
+.token .section-label {
+    color: var(--gold);
+}
+
 .stack-header {
     text-align: center;
     margin-bottom: var(--space-3xl);

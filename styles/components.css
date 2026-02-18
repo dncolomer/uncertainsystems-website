@@ -146,6 +146,22 @@
     transform: translateX(4px);
 }
 
+.tool-cta-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+    margin-top: var(--space-md);
+}
+
+.tool-cta-secondary {
+    color: var(--marble-white);
+    opacity: 0.7;
+}
+
+.tool-cta-secondary:hover {
+    opacity: 1;
+}
+
 .tool-cta-disabled {
     display: inline-flex;
     align-items: center;
@@ -1277,8 +1293,114 @@
 }
 
 /* ============================================
-   MOBILE RESPONSIVE FIXES
-   ============================================ */
+    TOKEN SECTION
+    ============================================ */
+.token {
+    background: var(--deep-indigo);
+    padding: var(--space-4xl) 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.token::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(ellipse at 30% 20%, rgba(212, 175, 55, 0.08) 0%, transparent 50%),
+        radial-gradient(ellipse at 70% 80%, rgba(0, 255, 255, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.token .container {
+    position: relative;
+    z-index: 1;
+}
+
+.token-header {
+    text-align: center;
+    margin-bottom: var(--space-3xl);
+}
+
+.token .section-title {
+    color: var(--marble-white);
+}
+
+.token .section-subtitle {
+    color: var(--marble-white);
+    opacity: 0.7;
+}
+
+.token-intro {
+    max-width: 700px;
+    margin: 0 auto var(--space-3xl);
+    text-align: center;
+}
+
+.token-intro p {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--marble-white);
+    opacity: 0.8;
+}
+
+.token-benefits {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.benefit-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    transition: all var(--transition-base);
+}
+
+.benefit-card:hover {
+    border-color: var(--gold);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.benefit-icon {
+    font-size: 1.5rem;
+    color: var(--gold);
+    margin-bottom: var(--space-md);
+}
+
+.benefit-title {
+    font-family: var(--font-display);
+    font-size: 1.125rem;
+    color: var(--marble-white);
+    margin-bottom: var(--space-sm);
+}
+
+.benefit-text {
+    font-size: 0.9375rem;
+    color: var(--marble-white);
+    opacity: 0.7;
+    line-height: 1.6;
+}
+
+@media (max-width: 640px) {
+    .token-benefits {
+        grid-template-columns: 1fr;
+    }
+    
+    .token-intro p {
+        font-size: 1rem;
+    }
+}
+
+/* ============================================
+    MOBILE RESPONSIVE FIXES
+    ============================================ */
 
 /* Features grid mobile */
 @media (max-width: 768px) {
