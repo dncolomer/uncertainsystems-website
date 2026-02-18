@@ -162,6 +162,33 @@
     opacity: 1;
 }
 
+.tool-cta-primary {
+    background: var(--gold);
+    color: var(--deep-indigo);
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    border: 1px solid var(--gold);
+}
+
+.tool-cta-primary:hover {
+    background: var(--bronze);
+    border-color: var(--bronze);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+    color: var(--deep-indigo);
+}
+
+.tool-cta-tertiary {
+    color: var(--marble-white);
+    opacity: 0.5;
+    font-size: 0.75rem;
+}
+
+.tool-cta-tertiary:hover {
+    opacity: 1;
+    color: var(--marble-white);
+}
+
 .tool-cta-disabled {
     display: inline-flex;
     align-items: center;
