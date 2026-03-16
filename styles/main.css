@@ -999,7 +999,7 @@ section {
 }
 
 .unsys-content {
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
     position: relative;
     z-index: 1;
@@ -1127,143 +1127,143 @@ section {
     .ca-address {
         font-size: 0.625rem;
         padding: var(--space-sm);
-    }
-}
 
-/* ============================================
-   RAW BRAINS PAGE
-   ============================================ */
-.rawbrains-header {
-    padding-top: calc(72px + var(--space-4xl));
-    padding-bottom: var(--space-3xl);
-    text-align: center;
-    background: linear-gradient(180deg, var(--deep-indigo) 0%, var(--sea-indigo) 100%);
-    position: relative;
-}
-
-.rawbrains-header::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: 
-        radial-gradient(ellipse at 50% 0%, rgba(212, 175, 55, 0.1) 0%, transparent 50%);
-    pointer-events: none;
-}
-
-.rawbrains-header .container {
-    position: relative;
-    z-index: 1;
-}
-
-.rawbrains-title {
+.unsys-subtitle {
     font-family: var(--font-display);
-    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--gold);
+    text-align: center;
+    margin-bottom: var(--space-2xl);
+}
+
+.unsys-subsection {
+    margin-bottom: var(--space-2xl);
+    padding: var(--space-xl);
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(212, 175, 55, 0.15);
+    border-radius: var(--radius-md);
+}
+
+.unsys-subsection h4 {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 600;
     color: var(--marble-white);
     margin-bottom: var(--space-md);
-    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
 }
 
-.rawbrains-intro {
-    background: var(--sea-indigo);
-    padding: var(--space-3xl) 0;
-}
-
-.intro-content {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.intro-text {
+.unsys-subsection p {
     color: rgba(245, 245, 245, 0.85);
-    font-size: 1.125rem;
-    line-height: 1.8;
-    margin-bottom: var(--space-lg);
+    line-height: 1.7;
+    margin-bottom: var(--space-md);
+}
+
+.unsys-subsection ul {
+    margin-left: var(--space-lg);
+    margin-bottom: var(--space-md);
+}
+
+.unsys-subsection li {
+    color: rgba(245, 245, 245, 0.8);
+    line-height: 1.7;
+    margin-bottom: var(--space-sm);
+}
+
+.unsys-subsection li ul {
+    margin-left: var(--space-lg);
+    margin-top: var(--space-sm);
+}
+
+.unsys-note {
+    font-size: 0.9375rem;
+    color: rgba(212, 175, 55, 0.9) !important;
+    font-style: italic;
+    margin-bottom: var(--space-lg) !important;
+}
+
+.unsys-callout {
+    margin-top: var(--space-lg);
+    padding: var(--space-lg);
+    background: rgba(212, 175, 55, 0.1);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: var(--radius-md);
+    color: var(--marble-white);
+    line-height: 1.7;
+}
+
+.unsys-highlight {
+    font-size: 1.0625rem;
+    color: var(--gold) !important;
+    font-weight: 500;
     text-align: center;
+    padding: var(--space-md);
+    background: rgba(212, 175, 55, 0.1);
+    border-radius: var(--radius-md);
 }
 
-.intro-text:last-child {
-    margin-bottom: 0;
+.table-wrapper {
+    overflow-x: auto;
+    margin: var(--space-lg) 0;
+    border-radius: var(--radius-md);
+    background: rgba(0, 0, 0, 0.5) !important;
+    padding: var(--space-md);
+    border: 1px solid rgba(212, 175, 55, 0.3);
 }
 
-.rawbrains-episodes {
-    background: var(--deep-indigo);
-    padding: var(--space-4xl) 0;
-}
-
-.episodes-simple {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-lg);
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-.episode-card-simple {
-    position: relative;
-    display: block;
-    aspect-ratio: 16 / 9;
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    transition: all var(--transition-base);
-}
-
-.episode-card-simple:hover {
-    transform: scale(1.03);
-    box-shadow: 0 0 40px rgba(212, 175, 55, 0.3);
-}
-
-.episode-card-simple img {
+.unsys .table-wrapper .tokenomics-table {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    border-collapse: collapse !important;
+    border-spacing: 0;
+    font-size: 0.875rem;
+    color: #f5f5f5 !important;
+    background: transparent;
+    border: none;
 }
 
-.episode-label {
-    position: absolute;
-    bottom: var(--space-md);
-    left: var(--space-md);
-    background: var(--gold);
-    color: var(--deep-indigo);
-    padding: var(--space-xs) var(--space-sm);
-    border-radius: var(--radius-sm);
-    font-size: 0.75rem;
+.unsys .table-wrapper .tokenomics-table th,
+.unsys .table-wrapper .tokenomics-table td {
+    padding: var(--space-md);
+    text-align: left;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.3) !important;
+    color: #f5f5f5 !important;
+    background: rgba(0, 0, 0, 0.4) !important;
+}
+
+.unsys .table-wrapper .tokenomics-table th {
+    background: rgba(0, 0, 0, 0.7) !important;
+    color: #d4af37 !important;
     font-weight: 600;
+    font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
+    border-bottom: 2px solid #d4af37 !important;
 }
 
-.subscribe-content {
-    text-align: center;
-    max-width: 500px;
-    margin: 0 auto;
+.unsys .table-wrapper .tokenomics-table td {
+    background: rgba(0, 0, 0, 0.3) !important;
 }
 
-.subscribe-text {
-    color: rgba(245, 245, 245, 0.7);
-    margin-bottom: var(--space-lg);
+.unsys .table-wrapper .tokenomics-table tbody tr:hover td {
+    background: rgba(212, 175, 55, 0.2) !important;
 }
 
-.subscribe-link {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-sm);
-    color: var(--deep-indigo);
-    padding: var(--space-sm) var(--space-lg);
-    background: var(--gold);
-    border-radius: var(--radius-full);
-    font-weight: 500;
-    transition: all var(--transition-base);
+.unsys .table-wrapper .tokenomics-table tbody tr:last-child td {
+    border-bottom: none !important;
 }
 
-.subscribe-link:hover {
-    background: var(--marble-white);
-    box-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
-    transform: translateY(-2px);
+.unsys .table-wrapper .tokenomics-table a {
+    color: #d4af37;
 }
 
-.subscribe-link svg {
-    width: 16px;
-    height: 16px;
+.unsys-details {
+    margin-top: var(--space-lg);
+    margin-left: var(--space-lg);
+}
+
+.unsys-details li {
+    margin-bottom: var(--space-sm);
+    color: rgba(245, 245, 245, 0.8);
 }
 
 @media (max-width: 768px) {
