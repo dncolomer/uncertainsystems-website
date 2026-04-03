@@ -226,6 +226,17 @@ export default function ToolsPage() {
             </div>
           ))}
         </div>
+        {/* Roadmap */}
+        <div className="mt-16 text-center">
+          <span className="section-label">Roadmap</span>
+          <div className="mt-6 glass p-4 md:p-6 inline-block">
+            <img
+              src="/images/roadmap.png"
+              alt="Uncertain Systems Roadmap"
+              className="rounded-lg max-w-full"
+            />
+          </div>
+        </div>
       </div>
     </div>
   );
