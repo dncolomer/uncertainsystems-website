@@ -162,6 +162,135 @@ export default function Home() {
         </div>
       </section>
 
+      {/* What is Uncertain Systems? */}
+      <section className="py-24 bg-gradient-to-b from-sea-indigo to-deep-indigo">
+        <div className="max-w-4xl mx-auto px-4 md:px-8">
+          <div className="text-center mb-16">
+            <span className="section-label">The Pitch</span>
+            <h2 className="text-3xl md:text-4xl text-marble-white">
+              What is Uncertain Systems?
+            </h2>
+          </div>
+
+          <div className="text-center mb-12 max-w-3xl mx-auto">
+            <h3 className="text-2xl text-gold mb-8">
+              Accelerating Human Education Through True AI Tutoring
+            </h3>
+          </div>
+
+          <div className="max-w-3xl mx-auto space-y-10">
+            <div>
+              <h4 className="text-lg text-gold font-medium mb-3">The Axiom</h4>
+              <p className="text-lg leading-relaxed text-marble-white/80">
+                We are already using AI to teach humans. The next leap is using AI to tutor
+                them—helping every learner achieve genuine independent mastery. A tutor's job is
+                not to answer questions; it is to transform a student's mind so they no longer
+                need the tutor.
+              </p>
+            </div>
+
+            <div>
+              <h4 className="text-lg text-gold font-medium mb-3">The Core Problem</h4>
+              <div className="space-y-4">
+                <p className="text-lg leading-relaxed text-marble-white/80">
+                  Today's large language models are powerful knowledge engines, yet they still
+                  cannot serve as real human tutors. Cognition remains a black box. We do not
+                  understand how the brain actually works, and therefore our current AI
+                  models—trained on data that is at least one degree removed from live human
+                  reasoning—cannot either.
+                </p>
+                <p className="text-lg leading-relaxed text-marble-white/80">
+                  A February 2026 paper ("Large Language Models as Students Who Think Aloud")
+                  confirms what practitioners already see: state-of-the-art LLMs are overly
+                  coherent, verbose, and confidently wrong when faced with genuine novice
+                  reasoning and metacognition. They simulate tutoring; they do not replicate it.
+                </p>
+                <p className="text-lg leading-relaxed text-marble-white/80">
+                  As a result, AI today integrates horizontally into edTech—great for search,
+                  flashcards, and content delivery—but it has not delivered the vertical
+                  breakthrough required for true mastery.
+                </p>
+              </div>
+            </div>
+
+            <div>
+              <h4 className="text-lg text-gold font-medium mb-3">Cognitive Equivalence</h4>
+              <p className="text-lg leading-relaxed text-marble-white/80">
+                Any two human brains are, in principle, equivalent. If Brain B can solve problem
+                X and Brain A cannot, there must exist a transformation path from config A →
+                config B that is biologically compatible with Person A. The challenge is
+                discovering that path efficiently, scalably, and without invasive hardware.
+              </p>
+            </div>
+
+            <div>
+              <h4 className="text-lg text-gold font-medium mb-3">
+                Our Solution: A Full Vertical Stack Built for Now and the Future
+              </h4>
+              <p className="text-lg leading-relaxed text-marble-white/80 mb-8">
+                We are not waiting for Neuralink or perfect neuroscience. We are building what is
+                possible today while creating the data foundation for tomorrow through LLM
+                Harnesses—the same methodology that turned raw models into production-grade coding
+                assistants over the last two years. Our stack is deliberately vertical:
+              </p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-4">
+            {[
+              {
+                icon: "◈",
+                title: "Data Layer",
+                text: (
+                  <>
+                    <strong className="text-marble-white">GHC Dataset</strong> (Grounded Human
+                    Cognition): High-fidelity, real-time learning traces that close the gap
+                    between training data and actual novice cognition.
+                    <br /><br />
+                    <strong className="text-marble-white">GHC Benchmark</strong>: A rigorous
+                    cognitive evaluation suite.
+                  </>
+                ),
+              },
+              {
+                icon: "◈",
+                title: "Software Layer",
+                text: (
+                  <>
+                    <strong className="text-marble-white">openLesson</strong>: The core AI-native
+                    tutoring platform. Built as an agentic harness that probes, diagnoses, and
+                    guides learners toward independent mastery rather than spoon-feeding answers.
+                  </>
+                ),
+              },
+              {
+                icon: "◈",
+                title: "Simulator & Hardware Layer",
+                text: (
+                  <>
+                    <strong className="text-marble-white">Classroom</strong>: Our Educational
+                    Simulator and Dojo. This is where we train synthetic Tutors and Synthetic
+                    Students at scale. Classroom also serves as the software foundation that powers
+                    our hardware devices, creating immersive, real-world learning environments that
+                    go far beyond the screen.
+                  </>
+                ),
+              },
+            ].map((p) => (
+              <div
+                key={p.title}
+                className="glass text-center p-8 hover:translate-y-[-4px] hover:shadow-[0_20px_40px_rgba(0,26,51,0.4)] transition-all duration-300"
+              >
+                <div className="text-3xl text-gold mb-4 drop-shadow-[0_0_20px_rgba(212,175,55,0.2)]">
+                  {p.icon}
+                </div>
+                <h3 className="text-lg text-marble-white mb-2">{p.title}</h3>
+                <p className="text-sm text-slate-gray leading-relaxed">{p.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
     </>
   );
