@@ -14,7 +14,7 @@ export function StakingDashboard() {
         rel="noopener"
         className="btn-gold"
       >
-        Login
+        Open
       </a>
     </div>
   );
