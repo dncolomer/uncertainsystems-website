@@ -1,7 +1,7 @@
 import { Shield, Coins, Users, ExternalLink } from "lucide-react";
 import { StakingDashboard } from "./components/StakingDashboard";
 
-const PROGRAM_ID = "8fQT7WjAw2BLYJcbTPYxLciPmUgh5GS4Jj2Vo1uhoK2q";
+const PROGRAM_ID = "GSxEFVkssh6trQ97WZBsMGs1iahdJ6Z2fSPjQ617nKLN";
 const CA = "Dza3Bey5tvyYiPgcGRKoXKU6rNrdoNrWNVmjqePcpump";
 
 export default function InvestorsPage() {
