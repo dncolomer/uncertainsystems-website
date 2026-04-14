@@ -20,17 +20,16 @@ export default function DataProvidersPage() {
 
           {/* External Frontend CTA */}
           <div className="max-w-lg mx-auto glass p-8 text-center bg-gradient-to-br from-gold/10 to-transparent !border-gold/30">
-            <p className="text-sm text-marble-white/60 mb-4 uppercase tracking-wider">Data Provider Portal</p>
-            <a
-              href="https://data.uncertainsystems.dev"
-              target="_blank"
-              rel="noopener"
-              className="btn-gold !text-base !py-4 !px-10 shadow-[0_0_40px_rgba(212,175,55,0.3)] hover:shadow-[0_0_60px_rgba(212,175,55,0.5)] inline-flex items-center gap-2"
+            <p className="text-sm text-marble-white/60 mb-2 uppercase tracking-wider">Data Provider Portal</p>
+            <span className="inline-block mb-4 px-3 py-1 bg-neon-cyan/20 text-neon-cyan text-xs font-semibold rounded-full">Coming Soon</span>
+            <button
+              disabled
+              className="btn-gold !text-base !py-4 !px-10 opacity-50 cursor-not-allowed inline-flex items-center gap-2"
             >
               <ExternalLink size={18} />
               Access Provider Dashboard
               <ArrowRight size={18} />
-            </a>
+            </button>
             <p className="mt-4 text-xs text-marble-white/40">
               Operate the Solana contract, submit data, and claim revenue
             </p>
@@ -182,15 +181,15 @@ export default function DataProvidersPage() {
 
         {/* CTA */}
         <div className="text-center">
-          <a
-            href="https://data.uncertainsystems.dev"
-            target="_blank"
-            rel="noopener"
-            className="btn-gold inline-flex items-center gap-2"
+          <span className="inline-block mb-4 px-3 py-1 bg-neon-cyan/20 text-neon-cyan text-xs font-semibold rounded-full">Coming Soon</span>
+          <br />
+          <button
+            disabled
+            className="btn-gold inline-flex items-center gap-2 opacity-50 cursor-not-allowed"
           >
             <ExternalLink size={18} />
             Access Data Provider Portal
-          </a>
+          </button>
         </div>
       </div>
     </div>
