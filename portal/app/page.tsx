@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowDown, Blocks, TrendingUp, Radio, BookOpen } from "lucide-react";
+import { ArrowDown, Blocks, TrendingUp, Radio, BookOpen, Bot, GitFork } from "lucide-react";
 
 export default function Home() {
   return (
@@ -157,6 +157,70 @@ export default function Home() {
                   {card.desc}
                 </p>
               </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Agents Section */}
+      <section className="py-24 bg-gradient-to-b from-deep-indigo to-sea-indigo/80">
+        <div className="max-w-6xl mx-auto px-4 md:px-8">
+          <div className="text-center mb-16">
+            <span className="section-label">Agentic Tools</span>
+            <h2 className="text-3xl md:text-4xl text-marble-white">
+              AI Agents for Education
+            </h2>
+            <p className="text-lg text-marble-white/60 max-w-2xl mx-auto mt-4">
+              Open-source agentic implementations built on top of the openLesson harness.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              {
+                name: "openLesson Hermes",
+                description: "High-performance agentic tutor powered by Hermes models for advanced reasoning and educational dialogue.",
+                icon: Bot,
+                href: "https://github.com/dncolomer/openlesson-hermes",
+                color: "from-gold/20 via-bronze/10 to-transparent",
+              },
+              {
+                name: "openLesson ElizaOS",
+                description: "Social AI agent integration bringing educational companions to social platforms and communities.",
+                icon: Bot,
+                href: "https://github.com/dncolomer/openlesson-elizaos",
+                color: "from-neon-cyan/15 via-neon-cyan/5 to-transparent",
+              },
+              {
+                name: "openLesson OpenClaw",
+                description: "Embodied AI agent framework connecting physical hardware with intelligent tutoring systems.",
+                icon: Bot,
+                href: "https://github.com/dncolomer/openlesson-openclaw",
+                color: "from-forest-green/15 via-forest-green/5 to-transparent",
+              },
+            ].map((agent) => (
+              <a
+                key={agent.name}
+                href={agent.href}
+                target="_blank"
+                rel="noopener"
+                className={`group glass p-8 bg-gradient-to-br ${agent.color} hover:translate-y-[-4px] hover:shadow-[0_20px_40px_rgba(0,26,51,0.4)] transition-all duration-300`}
+              >
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-gold/20 to-gold/5 border border-gold/30 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <agent.icon size={24} className="text-gold" />
+                  </div>
+                  <h3 className="text-lg text-marble-white group-hover:text-gold transition-colors">
+                    {agent.name}
+                  </h3>
+                </div>
+                <p className="text-sm text-marble-white/60 leading-relaxed mb-6">
+                  {agent.description}
+                </p>
+                <div className="flex items-center gap-2 text-sm text-gold/70 group-hover:text-gold transition-colors">
+                  <GitFork size={14} />
+                  <span>View on GitHub</span>
+                </div>
+              </a>
             ))}
           </div>
         </div>
