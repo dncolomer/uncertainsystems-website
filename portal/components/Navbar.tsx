@@ -8,11 +8,11 @@ import { Menu, X, LogIn, LogOut, User, Shield } from "lucide-react";
 import type { User as SupabaseUser } from "@supabase/supabase-js";
 
 const NAV_LINKS = [
-  { href: "/tools", label: "Tools" },
+  { href: "/science", label: "Science" },
+  { href: "/solutions", label: "Solutions" },
+  { href: "/stack", label: "Stack" },
+  { href: "/data-providers", label: "Data" },
   { href: "/investors", label: "Investors" },
-  { href: "/data-providers", label: "Data Providers" },
-  { href: "/socials", label: "Socials" },
-  { href: "/blog", label: "Blog" },
 ];
 
 export function Navbar() {
@@ -34,11 +34,6 @@ export function Navbar() {
       document.body.style.overflow = "";
     };
   }, [mobileOpen]);
-
-  // Close mobile menu on route change
-  useEffect(() => {
-    setMobileOpen(false);
-  }, [pathname]);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -84,31 +79,31 @@ export function Navbar() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-deep-indigo/95 backdrop-blur-xl border-b border-gold/20"
-          : "bg-deep-indigo/70 backdrop-blur-md border-b border-gold/10"
+          ? "bg-deep-indigo/95 backdrop-blur-xl border-b border-marble-white/10"
+          : "bg-deep-indigo/70 backdrop-blur-md border-b border-marble-white/10"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between h-[72px]">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3 group">
-          <span className="text-2xl text-gold drop-shadow-[0_0_10px_rgba(212,175,55,0.3)] group-hover:drop-shadow-[0_0_20px_rgba(212,175,55,0.5)] transition-all">
-            ◇
+          <span className="flex h-8 w-8 items-center justify-center rounded-full border border-marble-white/20 text-sm text-marble-white/70 transition-all group-hover:border-marble-white/50">
+            U
           </span>
-          <span className="font-[family-name:var(--font-display)] text-lg font-medium tracking-wider text-marble-white">
+          <span className="font-[family-name:var(--font-display)] text-base font-medium tracking-[-0.02em] text-marble-white">
             Uncertain Systems
           </span>
         </Link>
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-5 lg:gap-8">
           {NAV_LINKS.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               className={`text-sm font-medium tracking-wide transition-all duration-200 ${
                 pathname === link.href
-                  ? "text-gold"
-                  : "text-marble-white/70 hover:text-gold"
+                  ? "text-marble-white"
+                  : "text-marble-white/55 hover:text-marble-white"
               }`}
             >
               {link.label}
@@ -127,7 +122,7 @@ export function Navbar() {
             <div className="w-16 h-8 bg-marble-white/5 rounded-full animate-pulse" />
           ) : user ? (
             <div className="flex items-center gap-3">
-              <span className="text-xs text-marble-white/50 flex items-center gap-1">
+              <span className="hidden lg:flex text-xs text-marble-white/50 items-center gap-1 max-w-32 truncate">
                 <User size={14} />
                 {user.email?.split("@")[0]}
               </span>

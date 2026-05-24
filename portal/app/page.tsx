@@ -1,361 +1,194 @@
 import Link from "next/link";
-import { ArrowDown, Blocks, TrendingUp, Radio, BookOpen, Bot, GitFork } from "lucide-react";
+import { ArrowRight, Brain, Building2, CircleDot, GraduationCap, Radio, Users } from "lucide-react";
+
+const pillars = [
+  {
+    title: "Problem",
+    kicker: "Low ROI Learning",
+    text: "For most people, learning is physically and mentally expensive. Attention, retention, and deep understanding still require too much effort for the output they get back.",
+  },
+  {
+    title: "Vision",
+    kicker: "Self-Driving Learning",
+    text: "We are building non-invasive technology that guarantees the same or more human learning with significantly less physical and mental effort.",
+  },
+  {
+    title: "Goal",
+    kicker: "More Attention, Same Energy",
+    text: "Increase attention markers without a proportional energy cost to the user, then compound that into a full automation stack for human learning.",
+  },
+];
+
+const science = [
+  "Brain configuration is the full physical state of a human brain at a specific point in time.",
+  "Knowledge is proximity: how close one configuration is to another useful configuration.",
+  "Learning is transformation through configuration space.",
+];
+
+const roadmap = [
+  ["Today", "OpenLesson v1: LLM harness for Socratic think-aloud coaching."],
+  ["Near-Term", "Socratic interruption model plus other world models."],
+  ["Medium-Term", "Non-invasive brain-stimulation headset, starting with tDCS."],
+  ["Future", "Full automation: hardware, software, and biofeedback loops."],
+];
+
+const markets = [
+  {
+    icon: Users,
+    title: "Individuals",
+    text: "People who want to learn deeply without turning every hard topic into a high-friction grind.",
+  },
+  {
+    icon: Building2,
+    title: "Enterprises",
+    text: "Teams that need people to understand complex products, systems, and decisions faster and with less wasted training time.",
+  },
+  {
+    icon: Radio,
+    title: "Educators",
+    text: "Schools, academies, and tutors that want practice environments where learners reveal how they think, not just what they answer.",
+  },
+  {
+    icon: GraduationCap,
+    title: "Builders",
+    text: "Researchers and developers building tools, agents, datasets, and interfaces around real human learning traces.",
+  },
+];
 
 export default function Home() {
   return (
-    <>
-      {/* Hero */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden -mt-[72px] pt-[72px]">
-        <div
-          className="absolute inset-0 z-0"
-          style={{
-            background: `url('/images/hero-bg.jpg') center top / cover no-repeat, linear-gradient(180deg, #1a3a5c 0%, #0d2440 50%, #061a2e 100%)`,
-          }}
-        />
-        <div className="absolute inset-0 z-0 bg-gradient-to-b from-deep-indigo/60 via-deep-indigo/50 to-deep-indigo" />
-        <div className="absolute inset-0 z-0 stars-bg" />
-        <div
-          className="absolute inset-0 z-0 opacity-50"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='400' height='400' viewBox='0 0 400 400' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='100' cy='100' r='2' fill='%23D4AF37' fill-opacity='0.3'/%3E%3Ccircle cx='200' cy='50' r='1.5' fill='%23D4AF37' fill-opacity='0.3'/%3E%3Ccircle cx='300' cy='100' r='2' fill='%23D4AF37' fill-opacity='0.3'/%3E%3Ccircle cx='150' cy='200' r='1.5' fill='%23D4AF37' fill-opacity='0.3'/%3E%3Ccircle cx='250' cy='200' r='1.5' fill='%23D4AF37' fill-opacity='0.3'/%3E%3Ccircle cx='200' cy='300' r='2' fill='%23D4AF37' fill-opacity='0.3'/%3E%3Cpath d='M100 100 L200 50 L300 100 M150 200 L200 300 L250 200' stroke='%23D4AF37' stroke-opacity='0.1' stroke-width='0.5'/%3E%3C/svg%3E")`,
-            backgroundSize: "400px 400px",
-          }}
-        />
-
-        <div className="relative z-10 text-center max-w-3xl px-4 md:px-8">
-          <h1 className="mb-6 animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
-            <span className="block text-marble-white text-5xl md:text-7xl drop-shadow-lg">
-              Uncertain
-            </span>
-            <span className="block text-metallic text-5xl md:text-7xl drop-shadow-lg">
-              Systems
-            </span>
-          </h1>
-          <p
-            className="font-[family-name:var(--font-display)] text-base md:text-xl tracking-[0.1em] text-marble-white/90 mb-6 animate-fade-in-up"
-            style={{ animationDelay: "0.2s" }}
-          >
-            Accelerating Human Educational Technology
-          </p>
-          <p
-            className="text-lg text-marble-white/80 max-w-xl mx-auto mb-10 leading-relaxed animate-fade-in-up"
-            style={{ animationDelay: "0.3s" }}
-          >
-            Infrastructure for Human Education in an AI-driven World.
-            An open ecosystem dedicated to education accelerationism.
-          </p>
-          <a
-            href="#portal"
-            className="btn-outline animate-fade-in-up"
-            style={{ animationDelay: "0.4s" }}
-          >
-            Explore the Portal
-            <ArrowDown size={16} className="animate-bounce" />
-          </a>
-        </div>
-      </section>
-
-      {/* Vision */}
-      <section className="py-24 bg-gradient-to-b from-deep-indigo to-sea-indigo/80">
-        <div className="max-w-4xl mx-auto px-4 md:px-8">
-          <div className="text-center mb-16">
-            <span className="section-label">Our Vision</span>
-            <h2 className="text-3xl md:text-4xl text-marble-white">
-              Educational Accelerationism
-            </h2>
-          </div>
-          <div className="text-center mb-16 max-w-3xl mx-auto space-y-6">
-            <p className="text-lg leading-relaxed text-marble-white/80">
-              We believe in the radical acceleration of human learning capacity through
-              open technology. Every tool we build is a step toward a future where
-              knowledge flows freely, where learning adapts to the learner, and where
-              the barriers between curiosity and mastery dissolve.
+    <main className="site-shell -mt-[72px] pt-[72px]">
+      <section className="hero-section">
+        <div className="hero-bg" />
+        <div className="page-container hero-grid hero-grid-single">
+          <div className="hero-copy">
+            <span className="eyebrow">Uncertain Systems</span>
+            <h1>Automating Human Learning</h1>
+            <p>
+              We are building self-driving technology for learning: non-invasive systems that raise attention and understanding without asking humans to burn proportionally more energy.
             </p>
-            <p className="text-lg leading-relaxed text-marble-white/80">
-              Modern AI is overwhelmingly trained on finalized, edited, high-quality text — never
-              on the live, uncertain, error-filled process of human discovery. By systematically
-              collecting and structuring authentic cognition, we supply the missing signal needed
-              to train models that truly understand and augment human thought.
-            </p>
-            <p className="text-lg leading-relaxed text-marble-white/80">
-              This is not just education. This is <em className="text-gold not-italic font-medium">acceleration</em>.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              { icon: "◈", title: "Open Source", text: "Every line of code, freely available. Build with us, build upon us." },
-              { icon: "◈", title: "AI-Native", text: "Intelligence amplified. Human potential unlocked through machine partnership." },
-              { icon: "◈", title: "Community", text: "Collective wisdom, shared progress. We accelerate together." },
-            ].map((p) => (
-              <div
-                key={p.title}
-                className="glass text-center p-8 hover:translate-y-[-4px] hover:shadow-[0_20px_40px_rgba(0,26,51,0.4)] transition-all duration-300"
-              >
-                <div className="text-3xl text-gold mb-4 drop-shadow-[0_0_20px_rgba(212,175,55,0.2)]">
-                  {p.icon}
-                </div>
-                <h3 className="text-lg text-marble-white mb-2">{p.title}</h3>
-                <p className="text-sm text-slate-gray">{p.text}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Portal Cards */}
-      <section id="portal" className="py-24 bg-sea-indigo relative overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-0 left-[20%] w-96 h-96 bg-gold/5 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 right-[20%] w-96 h-96 bg-neon-cyan/5 rounded-full blur-3xl" />
-        </div>
-        <div className="max-w-6xl mx-auto px-4 md:px-8 relative z-10">
-          <div className="text-center mb-16">
-            <span className="section-label">The Portal</span>
-            <h2 className="text-3xl md:text-4xl text-marble-white">
-              Explore the Ecosystem
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {[
-              {
-                href: "/tools",
-                icon: <Blocks size={32} />,
-                title: "The Stack",
-                desc: "Our modular open tools for education acceleration — openLesson, GHC Dataset, Benchmark, and more.",
-              },
-              {
-                href: "/investors",
-                icon: <TrendingUp size={32} />,
-                title: "Investors",
-                desc: "Stake $UNSYS, earn dividends, become a partner. On-chain revenue sharing on Solana.",
-              },
-              {
-                href: "/socials",
-                icon: <Radio size={32} />,
-                title: "Socials",
-                desc: "Follow the journey on YouTube, X, and beyond.",
-              },
-              {
-                href: "/blog",
-                icon: <BookOpen size={32} />,
-                title: "Blog",
-                desc: "Updates, insights, and thoughts on educational accelerationism.",
-              },
-            ].map((card) => (
-              <Link
-                key={card.href}
-                href={card.href}
-                className="glass p-8 group hover:translate-y-[-4px] transition-all duration-300"
-              >
-                <div className="text-gold mb-4 group-hover:scale-110 transition-transform duration-300">
-                  {card.icon}
-                </div>
-                <h3 className="text-xl text-marble-white mb-2 group-hover:text-gold transition-colors">
-                  {card.title}
-                </h3>
-                <p className="text-sm text-marble-white/60 leading-relaxed">
-                  {card.desc}
-                </p>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Agents Section */}
-      <section className="py-24 bg-gradient-to-b from-deep-indigo to-sea-indigo/80">
-        <div className="max-w-6xl mx-auto px-4 md:px-8">
-          <div className="text-center mb-16">
-            <span className="section-label">Agentic Tools</span>
-            <h2 className="text-3xl md:text-4xl text-marble-white">
-              AI Agents for Education
-            </h2>
-            <p className="text-lg text-marble-white/60 max-w-2xl mx-auto mt-4">
-              Open-source agentic implementations built on top of the openLesson harness.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              {
-                name: "openLesson Hermes",
-                description: "High-performance agentic tutor powered by Hermes models for advanced reasoning and educational dialogue.",
-                icon: Bot,
-                href: "https://github.com/dncolomer/openlesson-hermes",
-                color: "from-gold/20 via-bronze/10 to-transparent",
-              },
-              {
-                name: "openLesson ElizaOS",
-                description: "Social AI agent integration bringing educational companions to social platforms and communities.",
-                icon: Bot,
-                href: "https://github.com/dncolomer/openlesson-elizaos",
-                color: "from-neon-cyan/15 via-neon-cyan/5 to-transparent",
-              },
-              {
-                name: "openLesson OpenClaw",
-                description: "Embodied AI agent framework connecting physical hardware with intelligent tutoring systems.",
-                icon: Bot,
-                href: "https://github.com/dncolomer/openlesson-openclaw",
-                color: "from-forest-green/15 via-forest-green/5 to-transparent",
-              },
-            ].map((agent) => (
-              <a
-                key={agent.name}
-                href={agent.href}
-                target="_blank"
-                rel="noopener"
-                className={`group glass p-8 bg-gradient-to-br ${agent.color} hover:translate-y-[-4px] hover:shadow-[0_20px_40px_rgba(0,26,51,0.4)] transition-all duration-300`}
-              >
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-gold/20 to-gold/5 border border-gold/30 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <agent.icon size={24} className="text-gold" />
-                  </div>
-                  <h3 className="text-lg text-marble-white group-hover:text-gold transition-colors">
-                    {agent.name}
-                  </h3>
-                </div>
-                <p className="text-sm text-marble-white/60 leading-relaxed mb-6">
-                  {agent.description}
-                </p>
-                <div className="flex items-center gap-2 text-sm text-gold/70 group-hover:text-gold transition-colors">
-                  <GitFork size={14} />
-                  <span>View on GitHub</span>
-                </div>
+            <div className="hero-actions">
+              <a href="https://openlesson.academy" target="_blank" rel="noopener" className="btn-primary">
+                Open OpenLesson <ArrowRight size={16} />
               </a>
-            ))}
+              <Link href="/science" className="btn-secondary">Read the thesis</Link>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* What is Uncertain Systems? */}
-      <section className="py-24 bg-gradient-to-b from-sea-indigo to-deep-indigo">
-        <div className="max-w-4xl mx-auto px-4 md:px-8">
-          <div className="text-center mb-16">
-            <span className="section-label">The Pitch</span>
-            <h2 className="text-3xl md:text-4xl text-marble-white">
-              What is Uncertain Systems?
-            </h2>
+      <section className="page-section">
+        <div className="page-container card-grid three">
+          {pillars.map((item) => (
+            <article className="glass-panel" key={item.title}>
+              <span className="panel-index">{item.title}</span>
+              <h3>{item.kicker}</h3>
+              <p>{item.text}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section id="science" className="image-section science-bg">
+        <div className="page-container split-grid">
+          <div>
+            <span className="eyebrow">The Science</span>
+            <h2>A more holistic definition of knowledge.</h2>
           </div>
-
-          <div className="text-center mb-12 max-w-3xl mx-auto">
-            <h3 className="text-2xl text-gold mb-8">
-              Accelerating Human Education Through True AI Tutoring
-            </h3>
-          </div>
-
-          <div className="max-w-3xl mx-auto space-y-10">
-            <div>
-              <h4 className="text-lg text-gold font-medium mb-3">The Axiom</h4>
-              <p className="text-lg leading-relaxed text-marble-white/80">
-                We are already using AI to teach humans. The next leap is using AI to tutor
-                them—helping every learner achieve genuine independent mastery. A tutor's job is
-                not to answer questions; it is to transform a student's mind so they no longer
-                need the tutor.
-              </p>
-            </div>
-
-            <div>
-              <h4 className="text-lg text-gold font-medium mb-3">The Core Problem</h4>
-              <div className="space-y-4">
-                <p className="text-lg leading-relaxed text-marble-white/80">
-                  Today's large language models are powerful knowledge engines, yet they still
-                  cannot serve as real human tutors. Cognition remains a black box. We do not
-                  understand how the brain actually works, and therefore our current AI
-                  models—trained on data that is at least one degree removed from live human
-                  reasoning—cannot either.
-                </p>
-                <p className="text-lg leading-relaxed text-marble-white/80">
-                  A February 2026 paper ("Large Language Models as Students Who Think Aloud")
-                  confirms what practitioners already see: state-of-the-art LLMs are overly
-                  coherent, verbose, and confidently wrong when faced with genuine novice
-                  reasoning and metacognition. They simulate tutoring; they do not replicate it.
-                </p>
-                <p className="text-lg leading-relaxed text-marble-white/80">
-                  As a result, AI today integrates horizontally into edTech—great for search,
-                  flashcards, and content delivery—but it has not delivered the vertical
-                  breakthrough required for true mastery.
-                </p>
-              </div>
-            </div>
-
-            <div>
-              <h4 className="text-lg text-gold font-medium mb-3">Cognitive Equivalence</h4>
-              <p className="text-lg leading-relaxed text-marble-white/80">
-                Any two human brains are, in principle, equivalent. If Brain B can solve problem
-                X and Brain A cannot, there must exist a transformation path from config A →
-                config B that is biologically compatible with Person A. The challenge is
-                discovering that path efficiently, scalably, and without invasive hardware.
-              </p>
-            </div>
-
-            <div>
-              <h4 className="text-lg text-gold font-medium mb-3">
-                Our Solution: A Full Vertical Stack Built for Now and the Future
-              </h4>
-              <p className="text-lg leading-relaxed text-marble-white/80 mb-8">
-                We are not waiting for Neuralink or perfect neuroscience. We are building what is
-                possible today while creating the data foundation for tomorrow through LLM
-                Harnesses—the same methodology that turned raw models into production-grade coding
-                assistants over the last two years. Our stack is deliberately vertical:
-              </p>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-4">
-            {[
-              {
-                icon: "◈",
-                title: "Data Layer",
-                text: (
-                  <>
-                    <strong className="text-marble-white">GHC Dataset</strong> (Grounded Human
-                    Cognition): High-fidelity, real-time learning traces that close the gap
-                    between training data and actual novice cognition.
-                    <br /><br />
-                    <strong className="text-marble-white">GHC Benchmark</strong>: A rigorous
-                    cognitive evaluation suite.
-                  </>
-                ),
-              },
-              {
-                icon: "◈",
-                title: "Software Layer",
-                text: (
-                  <>
-                    <strong className="text-marble-white">openLesson</strong>: The core AI-native
-                    tutoring platform. Built as an agentic harness that probes, diagnoses, and
-                    guides learners toward independent mastery rather than spoon-feeding answers.
-                  </>
-                ),
-              },
-              {
-                icon: "◈",
-                title: "Simulator & Hardware Layer",
-                text: (
-                  <>
-                    <strong className="text-marble-white">Classroom</strong>: Our Educational
-                    Simulator and Dojo. This is where we train synthetic Tutors and Synthetic
-                    Students at scale. Classroom also serves as the software foundation that powers
-                    our hardware devices, creating immersive, real-world learning environments that
-                    go far beyond the screen.
-                  </>
-                ),
-              },
-            ].map((p) => (
-              <div
-                key={p.title}
-                className="glass text-center p-8 hover:translate-y-[-4px] hover:shadow-[0_20px_40px_rgba(0,26,51,0.4)] transition-all duration-300"
-              >
-                <div className="text-3xl text-gold mb-4 drop-shadow-[0_0_20px_rgba(212,175,55,0.2)]">
-                  {p.icon}
-                </div>
-                <h3 className="text-lg text-marble-white mb-2">{p.title}</h3>
-                <p className="text-sm text-slate-gray leading-relaxed">{p.text}</p>
+          <div className="stacked-list">
+            {science.map((item, index) => (
+              <div className="list-card" key={item}>
+                <CircleDot size={18} />
+                <p>{item}</p>
+                <span>0{index + 1}</span>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-    </>
+      <section id="product" className="page-section product-section">
+        <div className="product-band">
+          <div className="product-band-bg" />
+          <div className="page-container product-band-content">
+            <span className="eyebrow">Our First Product</span>
+            <h2>OpenLesson raises attention without turning learning into a grind.</h2>
+            <p>
+              OpenLesson turns any hard topic into a Socratic think-aloud session. It asks the learner to expose their current model, identifies the precise gap, and keeps them moving with low-friction coaching.
+            </p>
+            <a href="https://openlesson.academy" target="_blank" rel="noopener" className="btn-primary">
+              Open OpenLesson <ArrowRight size={16} />
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section className="quote-section">
+        <div className="page-container">
+          <blockquote>
+            “Identifying the precise gap in my knowledge is what the Socratic method does so well. I didn’t realize I didn’t know how that part worked until that direct question was asked of me.”
+          </blockquote>
+          <span>User feedback</span>
+        </div>
+      </section>
+
+      <section className="image-section roadmap-bg">
+        <div className="page-container">
+          <div className="section-heading left">
+            <span className="eyebrow">Roadmap</span>
+            <h2>From OpenLesson to the Neo Chair.</h2>
+          </div>
+          <div className="roadmap-grid">
+            {roadmap.map(([time, text]) => (
+              <article className="roadmap-card" key={time}>
+                <span>{time}</span>
+                <p>{text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="page-section">
+        <div className="page-container">
+          <div className="section-heading">
+            <span className="eyebrow">Who It Is For</span>
+            <h2>Learning automation for people, teams, educators, and builders.</h2>
+          </div>
+          <div className="card-grid four">
+            {markets.map((market) => (
+              <article className="glass-panel compact" key={market.title}>
+                <market.icon size={24} />
+                <h3>{market.title}</h3>
+                <p>{market.text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="image-section gtm-bg final-cta">
+        <div className="page-container final-grid">
+          <div>
+            <span className="eyebrow">Who Trusts Us</span>
+            <h2>Current projects using Uncertain Systems work.</h2>
+          </div>
+          <div className="content-card">
+            <Brain size={28} />
+            <h3>Who are we working for?</h3>
+            <div className="trust-list">
+              <a href="https://thewiser.org" target="_blank" rel="noopener">
+                <strong>TheWiser.org</strong>
+                <span>Learning and knowledge infrastructure project</span>
+              </a>
+              <a href="https://dantes.io" target="_blank" rel="noopener">
+                <strong>Dantes.io</strong>
+                <span>Current client project</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
   );
 }
