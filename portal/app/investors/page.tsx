@@ -20,6 +20,10 @@ export default function InvestorsPage() {
           </div>
 
           <div className="investor-hero-actions neutral-actions">
+            <a href="https://staking.uncertain.systems" target="_blank" rel="noopener" className="btn-gold">
+              <ExternalLink size={18} />
+              Open staking program
+            </a>
             <a href={`https://pump.fun/${CA}`} target="_blank" rel="noopener" className="btn-primary">
               <ExternalLink size={18} />
               Buy $UNSYS
